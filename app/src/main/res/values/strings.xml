@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Tip Calculator</string>
+    <string name="total_cost_text">ჯამური ღირებულება</string>
+    <string name="service_question_text">როგორ მოგეწონათ მომსახურება?</string>
+    <string name="calculate_cost_button_text">თანხის დაანგარიშება</string>
+    <string name="round_cost_switch_text">თანხის დამრგვალება</string>
+    <string name="selected_10_percent_text">არაუშავდა (10%)</string>
+    <string name="selected_15_percent_text">კარგი იყო (15%)</string>
+    <string name="selected_20_percent_text">საუკეთესო იყო (20%)</string>
+</resources>
