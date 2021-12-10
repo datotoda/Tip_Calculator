@@ -11,7 +11,7 @@ import com.example.tipcalculator.model.Tip
 
 
 class TipItemAdapter (private val context: Context,
-                      private val dataSet: MutableList<Tip>): RecyclerView.Adapter<TipItemAdapter.ItemViewHolder>(){
+                      private val dataSet: ArrayList<Tip>): RecyclerView.Adapter<TipItemAdapter.ItemViewHolder>(){
 
     class ItemViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         val listTextView: TextView = view.findViewById(R.id.list_item_title)

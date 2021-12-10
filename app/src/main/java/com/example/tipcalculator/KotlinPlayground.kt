@@ -10,6 +10,10 @@ import com.example.tipcalculator.adapter.TipItemAdapter
 import com.example.tipcalculator.model.Tip
 import androidx.recyclerview.widget.DividerItemDecoration
 import java.util.*
+import kotlin.collections.ArrayList
+
+
+const val TIP_OBJECT_LIST_KEY = "com.example.tipcalculator.TIP_OBJECT_LIST_KEY"
 
 
 private const val TAG = "runKotlinCode"
@@ -21,24 +25,9 @@ class KotlinPlayground : AppCompatActivity() {
 
 //        runKotlinCode()
 
-        val myTips = mutableListOf<Tip>()
 
-        val tip0 = Tip("Tip 0 title", (100).toDouble(), 15, false)
-        val tip1 = Tip("Tip 1 title", (147).toDouble(), 10, true)
-        val tip2 = Tip("Tip 2 title", (34).toDouble(), 20, true)
+        val myTips = intent.getParcelableArrayListExtra<Tip>(TIP_OBJECT_LIST_KEY) as ArrayList<Tip>
 
-        myTips.add(tip0)
-        myTips.add(tip1)
-        myTips.add(tip2)
-
-
-        for (i in 3..15){
-            myTips.add(
-                Tip("Tip $i title",
-                    ((10..50).random()).toDouble(),
-                    5 * (2..4).random(),
-                    true))
-        }
 
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
         recyclerView.adapter = TipItemAdapter(this, myTips)
@@ -47,6 +36,7 @@ class KotlinPlayground : AppCompatActivity() {
 
         val dividerItemDecoration = DividerItemDecoration(recyclerView.context, 1)
         recyclerView.addItemDecoration(dividerItemDecoration)
+
     }
 
     private fun log(text: String = ""){
