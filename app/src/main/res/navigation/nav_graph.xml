@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstScreen">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.tipcalculator.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/firstScreen"
+        android:name="com.example.tipcalculator.firstScreen"
+        android:label="fragment_first_screen"
+        tools:layout="@layout/fragment_first_screen" >
+        <action
+            android:id="@+id/action_firstScreen_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_firstScreen_to_kotlinPlayground"
+            app:destination="@id/kotlinPlayground" />
+    </fragment>
+    <activity
+        android:id="@+id/kotlinPlayground"
+        android:name="com.example.tipcalculator.KotlinPlayground"
+        android:label="activity_kotlin_playground"
+        tools:layout="@layout/activity_kotlin_playground" />
+</navigation>

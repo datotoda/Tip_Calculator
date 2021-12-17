@@ -25,17 +25,22 @@ class KotlinPlayground : AppCompatActivity() {
 
 //        runKotlinCode()
 
+        try {
+            val myTips = intent.getParcelableArrayListExtra<Tip>(TIP_OBJECT_LIST_KEY) as ArrayList<Tip>
 
-        val myTips = intent.getParcelableArrayListExtra<Tip>(TIP_OBJECT_LIST_KEY) as ArrayList<Tip>
 
+            val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
+            recyclerView.adapter = TipItemAdapter(this, myTips)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
-        recyclerView.adapter = TipItemAdapter(this, myTips)
+            recyclerView.setHasFixedSize(true)
 
-        recyclerView.setHasFixedSize(true)
+            val dividerItemDecoration = DividerItemDecoration(recyclerView.context, 1)
+            recyclerView.addItemDecoration(dividerItemDecoration)
+        }
+        catch (e: Exception){
+            log(e.toString())
+        }
 
-        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, 1)
-        recyclerView.addItemDecoration(dividerItemDecoration)
 
     }
 
