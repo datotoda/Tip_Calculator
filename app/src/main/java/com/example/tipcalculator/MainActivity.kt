@@ -21,25 +21,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calculate(v: View){
-        val totalCostString = binding.totalCostEditText.text.toString()
 
-        val percent = when(binding.tipSelectionRadioGroup.checkedRadioButtonId){
-            R.id.selected_15_percent -> 15
-            R.id.selected_20_percent -> 20
-            else -> 10
+        if (binding.totalCostEditText.text.isNotEmpty()){
+            val totalCostString = binding.totalCostEditText.text.toString()
+            val percent = when (binding.tipSelectionRadioGroup.checkedRadioButtonId) {
+                R.id.selected_15_percent -> 15
+                R.id.selected_20_percent -> 20
+                else -> 10
+            }
+
+            val newTip = Tip(
+                "Tip: $totalCostString",
+                totalCostString.toDouble(),
+                percent,
+                binding.roundCostSwitch.isChecked
+            )
+
+            val formattedText = NumberFormat.getCurrencyInstance().format(newTip.calculateTip())
+
+            Toast.makeText(this, "Tip: $formattedText", Toast.LENGTH_SHORT).show()
+
+
+            myTips.add(newTip)
         }
-
-        val newTip = Tip("Tip: $totalCostString",
-            totalCostString.toDouble(),
-            percent,
-            binding.roundCostSwitch.isChecked)
-
-        val formattedText = NumberFormat.getCurrencyInstance().format(newTip.calculateTip())
-
-        Toast.makeText(this, "Tip: $formattedText", Toast.LENGTH_SHORT).show()
-
-
-        myTips.add(newTip)
     }
 
     fun onOpenMyTips(v: View){
