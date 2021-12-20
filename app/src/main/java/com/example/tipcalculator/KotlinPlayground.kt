@@ -1,5 +1,6 @@
 package com.example.tipcalculator
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -23,24 +24,28 @@ class KotlinPlayground : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kotlin_playground)
 
-//        runKotlinCode()
-
         try {
-            val myTips = intent.getParcelableArrayListExtra<Tip>(TIP_OBJECT_LIST_KEY) as ArrayList<Tip>
-
-
-            val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
-            recyclerView.adapter = TipItemAdapter(this, myTips)
-
-            recyclerView.setHasFixedSize(true)
-
-            val dividerItemDecoration = DividerItemDecoration(recyclerView.context, 1)
-            recyclerView.addItemDecoration(dividerItemDecoration)
+            makeRecyclerView(
+                intent.getParcelableArrayListExtra<Tip>(TIP_OBJECT_LIST_KEY) as ArrayList<Tip>
+            )
         }
         catch (e: Exception){
             log(e.toString())
-        }
 
+            val myTips = ArrayList<Tip>()
+
+            for (i in 1..5){
+                myTips.add(
+                    Tip("Test Tip $i",
+                        ((10..50).random()).toDouble(),
+                        5 * (2..4).random(),
+                        true
+                    )
+                )
+            }
+
+            makeRecyclerView(myTips)
+        }
 
     }
 
@@ -48,56 +53,14 @@ class KotlinPlayground : AppCompatActivity() {
         Log.d(TAG, text)
     }
 
-    private fun runKotlinCode(){
-        log("START")
-//        val numbers: MutableList<Int> = mutableListOf(2, 4, 6, 8, 10)
-//        val devices: MutableList<String> = mutableListOf("Alexa", "Home Kit", "IPhone", "S 21")
-//
-//        numbers.add(12)
-//        numbers.add(14)
-//        numbers.add(16)
-//
-//        devices[2] = "Macbook PRO"
-//        devices.removeAt(3)
-//
-//        log( "List $devices")
-//        log( "List $numbers")
-//        log( "Size ${numbers.size}")
-//
-//        log( "First element ${numbers.first()}")
-//        log( "First element ${numbers[0]}")
-//
-//        log( "Last element ${numbers.last()}")
-//        log( "Last element ${numbers[numbers.size - 1]}")
-//
-//        for (device in devices){
-//            log(device)
-//        }
+    private fun makeRecyclerView(tips: ArrayList<Tip>){
+        val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
+        recyclerView.adapter = TipItemAdapter(this, tips)
 
-//        val myTips = mutableListOf<Tip>()
-//
-//        val tip0 = Tip("Tip 0 title", (100).toDouble(), 15, false)
-//        val tip1 = Tip("Tip 1 title", (147).toDouble(), 10, true)
-//        val tip2 = Tip("Tip 2 title", (34).toDouble(), 20, true)
-//
-//        log("Tip 0 ${tip0.calculateTip()}")
-//        log("Tip 1 ${tip1.calculateTip()}")
-//        log("Tip 2 ${tip2.calculateTip()}")
-//
-//        myTips.add(tip0)
-//        myTips.add(tip1)
-//        myTips.add(tip2)
-//
-//        myTips.forEach { tip ->
-//            log("${tip.title} ${tip.calculateTip()}")
-//        }
-//
-//
-//        log("Size ${myTips}")
+        recyclerView.setHasFixedSize(true)
 
-
-
-        log("END")
+        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, 1)
+        recyclerView.addItemDecoration(dividerItemDecoration)
     }
 
 }
