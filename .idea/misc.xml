@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/datotoda/AndroidStudioProjects/TipCalculator/app/src/main/res/drawable/costom_button.xml" value="0.4453125" />
+        <entry key="..\:/Users/datotoda/AndroidStudioProjects/TipCalculator/app/src/main/res/drawable/custom_background.xml" value="0.4453125" />
         <entry key="..\:/Users/datotoda/AndroidStudioProjects/TipCalculator/app/src/main/res/layout/activity_kotlin_playground.xml" value="0.42916666666666664" />
         <entry key="..\:/Users/datotoda/AndroidStudioProjects/TipCalculator/app/src/main/res/layout/activity_main.xml" value="0.42916666666666664" />
         <entry key="..\:/Users/datotoda/AndroidStudioProjects/TipCalculator/app/src/main/res/layout/activity_navigation_demo.xml" value="0.36666666666666664" />

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/custom_background"
     tools:context=".firstScreen">
 
     <LinearLayout
@@ -11,6 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,15 +20,21 @@
 
         <Button
             android:id="@+id/goToMainActivityButton"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="@string/calculate_cost_button_text" />
+            android:text="@string/calculate_cost_button_text"
+            android:background="@drawable/custom_button"
+            android:textColor="@color/orange"
+            android:layout_margin="10dp"/>
 
         <Button
             android:id="@+id/goToMyTipsButton"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="@string/see_my_tips_button_text" />
+            android:text="@string/see_my_tips_button_text"
+            android:background="@drawable/custom_button"
+            android:textColor="@color/orange"
+            android:layout_margin="10dp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
